@@ -22,7 +22,7 @@ int main(){
 		}
 
 		for(map<string,string>::iterator itr = referrence.begin(); itr!=referrence.end();itr++)
-			cout<<itr->second<<" is the Majia of "<<itr->first<<endl;
+			cout<<itr->second<<" is the MaJia of "<<itr->first<<endl;
 		cout<<endl;
 	}
 

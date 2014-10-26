@@ -1,16 +1,19 @@
 #include <iostream>
-
-#define N 30
+#define N 100
 
 using namespace std;
+
+/*
+贪心算法，对已经对比过的链进行标记
+*/
 
 bool compare(char first,char second){
 	bool res = false;
 	switch(first){
-		case 'A' : second=='T'?res = true:res = false; break;
-		case 'T' : second =='A'?res = true:res = false;break;
-		case 'G': second == 'C'?res = true:res = false;break;
-		case 'C': second == 'G'?res = true:res = false;break;
+		case 'A' : second == 'T' ?res = true:res = false;break;
+		case 'T' : second == 'A' ?res = true:res = false;break;
+		case 'G' : second == 'C' ?res = true:res = false;break;
+		case 'C' : second == 'G' ?res = true:res = false;break;
 	}
 
 	return res;
