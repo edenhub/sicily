@@ -5,19 +5,20 @@
 
 int main(){
 
-	double dInInches;
-	int r,timeInSecond,count=0;
+	float dInInches;
+	int r,count=0;
+	float timeInSecond;
 
 	while(1){
 		count++;
-		scanf("%f %d %d",&dInInches,&r,&timeInSecond);
+		scanf("%f %d %f",&dInInches,&r,&timeInSecond);
 
 		if(r == 0)
 			break;
 
-	    double distance = (double)(dInInches * PI * r) / (double)(5280 * 12);
-	    double MPH = (double)(distance * 3600) / (double)timeInSecond;
-	    printf("Trip #%i:%0.2f %0.2f\n",count,distance,MPH);
+	    float distance = (float)(dInInches * PI * r) / (float)(5280 * 12);
+	    float MPH = (float)(distance * 3600) / (float)timeInSecond;
+	    printf("Trip #%i: %0.2f %0.2f\n",count,distance,MPH);
 		
 	}
 
