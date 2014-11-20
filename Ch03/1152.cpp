@@ -63,9 +63,11 @@ void travel(int start){
 }
 
 int main(){
-	po p(2,3);
-	cout<<toNumber(p)<<endl;
-	dumpPosition(toPosition(15));
+	int start;
+
+	while((cin>>start) && (start!=-1)){
+		travel(start);
+	}
 
 	return 0;
 }
