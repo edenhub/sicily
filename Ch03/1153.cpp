@@ -5,13 +5,13 @@
 
 using namespace std;
 
-bool flag[5][6];
-int cicle[30];
+bool flag[8][8];
+int cicle[64];
 
 int directions[8][2] = {-2,1,-1,2,1,2,2,1,2,-1,1,-2,-1,-2,-2,-1};
 
 bool isInTable(int x,int y){
-	if((0<=x && x <=4) && (0<=y && y<=5))
+	if((0<=x && x <=7) && (0<=y && y<=7))
 		return true;
 	return false;
 }
@@ -55,19 +55,19 @@ bool cmp(position a,position b){
 }
 
 int positionToNum(position& po){
-	return 6*po.x + po.y + 1;
+	return 8*po.x + po.y + 1;
 }
 
 position numToPosition(int num){
 	num = num -1;
-	return position(num/6,num%6);
+	return position(num/8,num%8);
 }
 
 bool dfs(position po,int cicleIndex){
 	// cout<<"here1"<<endl;
 	cicle[cicleIndex] = positionToNum(po);
 	flag[po.x][po.y] = true;
-	if(cicleIndex == 29)
+	if(cicleIndex == 63)
 		return true;
 
 	vector<position> outList;
@@ -88,7 +88,7 @@ bool dfs(position po,int cicleIndex){
 }
 
 void displayCicle(){
-	for(int i=0;i<30;i++)
+	for(int i=0;i<64;i++)
 		cout<<cicle[i]<<" ";
 	cout<<endl;
 }
