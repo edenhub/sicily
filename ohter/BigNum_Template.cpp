@@ -9,6 +9,11 @@ using namespace std;
 
 int result[LA+LB+1];
 
+void plus(string& strA,string& strB){}
+void minus(string& strA,string& strB){}
+void divide(string& strA,string& strB){}
+void mod(string& strA,string& strB){}
+
 void multiple(string& strA,string& strB){
 	if(strA[0] == '0' || strB[0] == '0'){
 		cout<<0<<endl;
