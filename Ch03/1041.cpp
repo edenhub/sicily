@@ -90,10 +90,10 @@ bool cmpDown(position a,position b){
 }
 
 void moveRight(int off,int n,int width,int height){
-	int maxColOff = maxColStep(width,height,n);
-	off = min(maxColOff,off);
-	// int maxRowOff = maxRowStep(width,height,n);
-	// off = min(maxRowOff,off);
+	// int maxColOff = maxColStep(width,height,n);
+	// off = min(maxColOff,off);
+	int maxRowOff = maxRowStep(width,height,n);
+	off = min(maxRowOff,off);
 	sort(box,box+n,cmpRight);
 	int x=-1,y;
 	for(int i=0;i<n;i++){
@@ -111,10 +111,10 @@ void moveRight(int off,int n,int width,int height){
 }
 
 void moveLeft(int off,int n,int width,int height){
-	int maxColOff = maxColStep(width,height,n);
-	off = min(maxColOff,off);
-	// int maxRowOff = maxRowStep(width,height,n);
-	// off = min(maxRowOff,off);
+	// int maxColOff = maxColStep(width,height,n);
+	// off = min(maxColOff,off);
+	int maxRowOff = maxRowStep(width,height,n);
+	off = min(maxRowOff,off);
 	sort(box,box+n,cmpLeft);
 	int x=-1,y;
 	for(int i=0;i<n;i++){
@@ -132,10 +132,10 @@ void moveLeft(int off,int n,int width,int height){
 }
 
 void moveDown(int off,int n,int width,int height){
-	int maxRowOff = maxRowStep(width,height,n);
-	off = min(maxRowOff,off);
-	// int maxColOff = maxColStep(width,height,n);
-	// off = min(maxColOff,off);
+	// int maxRowOff = maxRowStep(width,height,n);
+	// off = min(maxRowOff,off);
+	int maxColOff = maxColStep(width,height,n);
+	off = min(maxColOff,off);
 	sort(box,box+n,cmpDown);
 	int y=-1,x;
 	for(int i=0;i<n;i++){
@@ -153,10 +153,10 @@ void moveDown(int off,int n,int width,int height){
 }
 
 void moveUp(int off,int n,int width,int height){
-	int maxRowOff = maxRowStep(width,height,n);
-	off = min(maxRowOff,off);
-	// int maxColOff = maxColStep(width,height,n);
-	// off = min(maxColOff,off);
+	// int maxRowOff = maxRowStep(width,height,n);
+	// off = min(maxRowOff,off);
+	int maxColOff = maxColStep(width,height,n);
+	off = min(maxColOff,off);
 	sort(box,box+n,cmpUp);
 	int y=-1,x;
 	for(int i=0;i<n;i++){
@@ -178,7 +178,7 @@ void init(int width,int height,int index){
 	int n;
 	cin>>n;
 	for(int i=0;i<n;i++){
-		cin>>box[i].x>>box[i].y;
+		cin>>box[i].y>>box[i].x;
 	}
 	// int maxRowOff = maxRowStep(width,height,n);
 	// int maxColOff = maxColStep(width,height,n);
@@ -205,7 +205,7 @@ void init(int width,int height,int index){
 
 int main(){
 	int width,height,index=0;
-	while((cin>>width>>height) && (width!=0))
+	while((cin>>height>>width) && (height!=0))
 		init(width,height,++index);
 	return 0;
 }
