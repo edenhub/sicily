@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+#include <stdio.h>
 
 using namespace std;
 
@@ -17,8 +18,8 @@ void isRegular(int num){
 			st.push(ch);
 		}
 		else{
-			// if(!st.empty()){
-			// 	char top = st.top();
+			if(!st.empty()){
+				char top = st.top();
 			// 	switch(top){
 			// 		case '(' : 
 			// 			if(ch == ')')
@@ -58,7 +59,7 @@ void isRegular(int num){
 int main(){
 	int num;
 
-	while((cin>>num) && (num!=-1))
+	while(scanf("%d",&num)!=EOF)
 		isRegular(num);
 
 	return 0;
