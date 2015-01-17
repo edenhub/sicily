@@ -4,63 +4,47 @@
 
 using namespace std;
 
-void isRegular(int num){
-	if((num%2) != 0){
-		cout<<"NO"<<endl;
-		return;
-	}
+bool isRegular(int num){
 	stack<char> st;
+
 	for(int i=0;i<num;i++){
 		char ch;
 		cin>>ch;
 
 		if(ch == '(' || ch=='[' || ch=='{'){
 			st.push(ch);
-		}
-		else{
+		}else{
 			if(!st.empty()){
 				char top = st.top();
-			// 	switch(top){
-			// 		case '(' : 
-			// 			if(ch == ')')
-			// 				st.pop();
-			// 			break;
-			// 		case '[' :
-			// 			if(ch==']')
-			// 				st.pop();
-			// 			break;
-			// 		case '{':
-			// 			if(ch=='}')
-			// 				st.pop();
-			// 			break;
-			// 	}
+
 				if((top == '[' && ch == ']') ||
 				   (top == '{' && ch =='}') ||
 				   (top == '(' && ch == ')')
-					)
+					){
 					st.pop();
-				else{
-					cout<<"NO"<<endl;
-					return;
+			}else{
+					st.push(ch);
 				}
 			}else{
-				cout<<"NO"<<endl;
-				return;
+					st.push(ch);
 			}
 		}
 	}
 
 	if(st.empty())
-		cout<<"YES"<<endl;
+		return true;
 	else
-		cout<<"NO"<<endl;
+		return false;
 }
 
 int main(){
 	int num;
 
 	while(scanf("%d",&num)!=EOF)
-		isRegular(num);
+		if(isRegular(num))
+			cout<<"YES"<<endl;
+		else
+			cout<<"NO"<<endl;
 
 	return 0;
 }
