@@ -51,7 +51,7 @@ int main(){
 
 		inversion_num = 0;
 		inversion_number(a,0,num,b);
-		cout<<inversion_num<<endl;
+		cout<<inversion_num+1<<endl;
 	}
 }
 // int main(){
